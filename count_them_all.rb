@@ -11,7 +11,7 @@ def count_them_all
   end
 
   CSV.foreach(csv_path, headers: true, encoding: "ISO-8859-1") do |row|
-    if row[2] == "Other" || row[2] == "other"
+    if row[2].downcase == "i did not submit a project"
       votes_array << row[3]
     elsif row[2] == row[3]
       puts "OH NO! someone voted for their own team! Vote tossed!"
